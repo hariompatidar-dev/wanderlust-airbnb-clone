@@ -1,10 +1,9 @@
 # Wanderlust 🏡
 
-A full-stack Airbnb-inspired accommodation platform where users can explore, create, update, and review property listings.
+Wanderlust is an Airbnb-inspired full-stack web application currently under active development. The project focuses on building a platform for discovering, creating, and reviewing property listings while progressively implementing authentication, authorization, and other real-world web application features.
 
 ## 🚀 Features
 
-- User authentication and authorization
 - Create, view, edit, and delete property listings
 - Property image support
 - Reviews and ratings
@@ -36,17 +35,26 @@ A full-stack Airbnb-inspired accommodation platform where users can explore, cre
 - Method Override
 - EJS Mate
 
-## 📂 Project Structure
+## 🚧 Project Status
 
-```text
-Wanderlust/
-├── models/          # Database models
-├── routes/          # Application routes
-├── views/           # EJS templates
-├── public/          # Static files
-├── utils/           # Utility functions
-├── init/            # Database initialization
-├── app.js           # Main application
-├── schema.js        # Validation schemas
-├── package.json
-└── .gitignore
+Wanderlust is currently under active development.
+
+The core listing and review functionality has been implemented, while several features and improvements are still being developed.
+
+### Completed
+- Listing CRUD operations
+- MongoDB integration
+- Reviews and ratings
+- Server-side validation
+- Custom error handling
+
+### In Progress
+- User authentication
+- Authorization
+- UI improvements
+- Additional application features
+
+### Planned
+- Additional features and refinements
+- Deployment
+- Production-level improvements
