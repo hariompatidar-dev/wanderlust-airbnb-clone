@@ -28,6 +28,10 @@ initData.data.forEach((listing, i) => {
 
 const initDB = async () => {
   await Listing.deleteMany({});
+  initData.data = initData.data.map((obj) => ({
+    ...obj,
+    owner: "6a9833993590b04953976eee",
+  }));
   await Listing.insertMany(initData.data, { runValidators: true });
   console.log("Data was initialized");
 };
