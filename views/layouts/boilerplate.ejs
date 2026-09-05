@@ -24,13 +24,16 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
+    <link href="/css/rating.css" rel="stylesheet" />
+   <link
+    href="https://unpkg.com/maplibre-gl@6.7.0/dist/maplibre-gl.css"
+    rel="stylesheet"
+/>
   </head>
   <body>
-    <%- include("../includes/navbar.ejs") %>
-    <%- include("../includes/flash.ejs") %>
-    <div class="container">
-
-      <%- body %></div>
+    <%- include("../includes/navbar.ejs") %> <%-
+    include("../includes/flash.ejs") %>
+    <div class="container"><%- body %></div>
 
     <%- include("../includes/footer.ejs") %>
     <script
@@ -38,6 +41,8 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <!-- <script src="https://unpkg.com/maplibre-gl@6.7.0/dist/maplibre-gl.js"></script> -->
     <script src="/js/script.js"></script>
+    <script type="module" src="/js/map.js"></script>
   </body>
 </html>

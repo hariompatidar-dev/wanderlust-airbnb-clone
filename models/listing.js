@@ -8,7 +8,7 @@ const listingSchema = new Schema({
   },
   description: String,
   image: {
-    // filename: { type: String },
+     filename: { type: String },
     url: {
       type: String,
       //   default:
@@ -18,12 +18,12 @@ const listingSchema = new Schema({
       //       ? "defauhttps://unsplash.com/photos/tropical-background-of-isolated-palm-tree-with-warm-sunset-behind-3d-render-fgI7wgPzQuclt link"
       //       : v,
       // required: [true, "Image URL is required"],
-      validate: {
-        validator: function (v) {
-          return /^https:\/\/.+/i.test(v);
-        },
-        message: (props) => `${props.value} is not a valid image URL`,
-      },
+      // validate: {
+      //   validator: function (v) {
+      //     return /^https:\/\/.+/i.test(v);
+      //   },
+      //   message: (props) => `${props.value} is not a valid image URL`,
+      // },
       default: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
     },
   },

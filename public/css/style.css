@@ -125,6 +125,38 @@ body {
 }
 
 .show-card {
-  padding-left:0;
+  padding-left: 0;
   padding-right: 0;
 }
+
+.edit_img {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#map {
+    height: 450px;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.custom-marker {
+    width: 42px;
+    height: 42px;
+    background: #222222;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+  
