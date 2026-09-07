@@ -1,6 +1,6 @@
-Wanderlust 🏡
+# Wanderlust 🏡
 
-Wanderlust is a full-stack Airbnb-inspired web application where
+**Wanderlust** is a full-stack Airbnb-inspired web application where
 users can discover property listings, create and manage their own
 listings, and share reviews.
 
@@ -9,114 +9,81 @@ development concepts including authentication, authorization, CRUD
 operations, MongoDB relationships, server-side validation, sessions, and
 responsive UI development.
 
-✨ Features
+## ✨ Features
 
-🔐 User Authentication
+-   🔐 **User Authentication**
+    -   User registration and login
+    -   Persistent login sessions
+    -   Logout functionality
 
-User registration and login
+-   🛡️ **Authorization**
+    -   Protected routes for authenticated users
+    -   Listing ownership checks
+    -   Users can edit or delete only their own listings
 
-Persistent login sessions
+-   🏠 **Listing Management**
+    -   Create new property listings
+    -   View individual listings
+    -   Edit existing listings
+    -   Delete listings
 
-Logout functionality
+-   ⭐ **Reviews & Ratings**
+    -   Authenticated users can add reviews
+    -   Users can delete their own reviews
+    -   Ratings are associated with listings
 
-🛡️ Authorization
+-   ✅ **Validation & Error Handling**
+    -   Server-side request validation
+    -   Custom error handling
+    -   Flash messages for user feedback
+    -   Protected routes and invalid-request handling
 
-Protected routes for authenticated users
+-   🗺️ **Location & Maps**
+    -   Location-based listing data
+    -   Map integration for listing locations
+    
+-   📱 **Responsive Interface**
+    -   Responsive layouts for different screen sizes
+    -   Reusable EJS partials and layouts
 
-Listing ownership checks
+## 🛠️ Tech Stack
 
-Users can edit or delete only their own listings
+### Frontend
 
-🏠 Listing Management
+-   HTML5
+-   CSS3
+-   JavaScript
+-   EJS
+-   Bootstrap
 
-Create new property listings
+### Backend
 
-View individual listings
+-   Node.js
+-   Express.js
 
-Edit existing listings
+### Database
 
-Delete listings
+-   MongoDB
+-   Mongoose
 
-⭐ Reviews & Ratings
+### Authentication & Sessions
 
-Authenticated users can add reviews
+-   Passport.js
+-   Passport Local Strategy
+-   Express Session
+-   Connect-Mongo
+-   Flash messages
 
-Users can delete their own reviews
+### Other Tools
 
-Ratings are associated with listings
+-   Git & GitHub
+-   Method Override
+-   EJS Mate
+-   Mapbox
 
-✅ Validation & Error Handling
+## 📂 Project Structure
 
-Server-side request validation
-
-Custom error handling
-
-Flash messages for user feedback
-
-Protected routes and invalid-request handling
-
-🗺️ Location & Maps
-
-Location-based listing data
-
-Map integration for listing locations
-
-📱 Responsive Interface
-
-Responsive layouts for different screen sizes
-
-Reusable EJS partials and layouts
-
-🛠️ Tech Stack
-
-Frontend
-
-HTML5
-
-CSS3
-
-JavaScript
-
-EJS
-
-Bootstrap
-
-Backend
-
-Node.js
-
-Express.js
-
-Database
-
-MongoDB
-
-Mongoose
-
-Authentication & Sessions
-
-Passport.js
-
-Passport Local Strategy
-
-Express Session
-
-Connect-Mongo
-
-Flash messages
-
-Other Tools
-
-Git & GitHub
-
-Method Override
-
-EJS Mate
-
-Mapbox
-
-📂 Project Structure
-
+``` text
 Wanderlust/
 ├── models/          # Mongoose models
 ├── routes/          # Application routes
@@ -131,30 +98,31 @@ Wanderlust/
 ├── schema.js        # Joi validation schemas
 ├── package.json     # Project dependencies and scripts
 └── .gitignore
+```
 
-🚀 Getting Started
+## 🚀 Getting Started
 
-1. Clone the repository
+### 1. Clone the repository
 
 git clone https://github.com/hariompatidar-dev/wanderlust-airbnb-clone.git
 
-2. Navigate to the project
+### 2. Navigate to the project
 
 cd wanderlust-airbnb-clone
 
-3. Install dependencies
+### 3. Install dependencies
 
 npm install
 
-4. Configure environment variables
+### 4. Configure environment variables
 
-Create a .env file in the project root.
+Create a `.env` file in the project root.
 
 MONGO_URL=your_mongodb_connection_string
 SECRET=your_session_secret
 MAP_TOKEN=your_mapbox_token
 
-5. Start the application
+### 5. Start the application
 
 node app.js
 
@@ -162,11 +130,11 @@ For development with nodemon:
 
 nodemon app.js
 
-6. Open the application
+### 6. Open the application
 
 http://localhost:8080
 
-🔑 Authentication Flow
+## 🔑 Authentication Flow
 
 Wanderlust uses session-based authentication.
 
@@ -186,7 +154,7 @@ Authorization is handled separately from authentication. For example,
 being logged in does not automatically allow a user to edit another
 user's listing.
 
-🔄 Core Application Flow
+## 🔄 Core Application Flow
 
 User
  │
@@ -202,62 +170,46 @@ User
  │
  └── Add / Manage Reviews
 
-🧠 What I Learned
+## 🧠 What I Learned
 
 Building Wanderlust helped me understand how different parts of a
 full-stack application work together:
 
-Building RESTful Express routes
+-   Building RESTful Express routes
+-   Working with MongoDB and Mongoose
+-   Designing relationships between users, listings, and reviews
+-   Implementing authentication with Passport.js
+-   Implementing authorization and ownership checks
+-   Managing sessions and persistent session storage
+-   Validating incoming data
+-   Handling errors with custom middleware
+-   Using EJS layouts and reusable partials
+-   Integrating location/map functionality
+-   Using Git and GitHub to track project development
 
-Working with MongoDB and Mongoose
-
-Designing relationships between users, listings, and reviews
-
-Implementing authentication with Passport.js
-
-Implementing authorization and ownership checks
-
-Managing sessions and persistent session storage
-
-Validating incoming data
-
-Handling errors with custom middleware
-
-Using EJS layouts and reusable partials
-
-Integrating location/map functionality
-
-Using Git and GitHub to track project development
-
-🔮 Future Improvements
+## 🔮 Future Improvements
 
 Possible improvements for future versions include:
 
-Advanced listing search and filtering
+-   Advanced listing search and filtering
+-   Image upload and cloud storage
+-   Booking and reservation functionality
+-   Payment integration
+-   User profile pages
+-   Favorites / wishlist functionality
+-   More advanced map-based search
+-   Production deployment and performance optimization
 
-Image upload and cloud storage
-
-Booking and reservation functionality
-
-Payment integration
-
-User profile pages
-
-Favorites / wishlist functionality
-
-More advanced map-based search
-
-Production deployment and performance optimization
-
-📸 Screenshots
+## 📸 Screenshots
 
 Screenshots of the application will be added here.
 
-👨‍💻 Author
+## 👨‍💻 Author
 
-Hariom Patidar
+**Hariom Patidar**
 
-GitHub: hariompatidar-dev
+GitHub: [hariompatidar-dev](https://github.com/hariompatidar-dev)
 
-⭐ If you found the project interesting, consider giving the repository
-a star.
+------------------------------------------------------------------------
+
+⭐ If you found the project interesting, consider giving the repository a star.
