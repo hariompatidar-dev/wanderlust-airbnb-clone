@@ -134,42 +134,6 @@ nodemon app.js
 
 http://localhost:8080
 
-## 🔑 Authentication Flow
-
-Wanderlust uses session-based authentication.
-
-Register
-   ↓
-Login
-   ↓
-Passport authenticates user
-   ↓
-Session stored
-   ↓
-Authenticated requests
-   ↓
-Protected resources
-
-Authorization is handled separately from authentication. For example,
-being logged in does not automatically allow a user to edit another
-user's listing.
-
-## 🔄 Core Application Flow
-
-User
- │
- ├── Browse Listings
- │
- ├── Register / Login
- │       │
- │       └── Session
- │
- ├── Create Listing
- │
- ├── Edit / Delete Own Listing
- │
- └── Add / Manage Reviews
-
 ## 🧠 What I Learned
 
 Building Wanderlust helped me understand how different parts of a
