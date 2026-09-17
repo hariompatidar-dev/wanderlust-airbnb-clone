@@ -19,7 +19,7 @@ router
     saveRedirectUrl,
     passport.authenticate("local", {
       failureRedirect: "/login",
-      failureFlash: true,
+      failureFlash: "Invalid Username or password",
     }),
     userController.login,
   );

@@ -21,8 +21,8 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-const dbUrl = process.env.ATLASDB_URL;
+const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+// const dbUrl = process.env.ATLASDB_URL;
 
 main()
   .then(() => {
@@ -33,7 +33,7 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(dbUrl);
+  await mongoose.connect(MONGO_URL);
 }
 
 app.set("view engine", "ejs");
@@ -44,7 +44,7 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
-  mongoUrl: dbUrl,
+  mongoUrl: MONGO_URL,
   crypto: {
     secret: "mysupersecretcode",
   },
@@ -61,7 +61,7 @@ const sessionOptions = {
   resave: false,
   saveUninitialized: true,
   cookie: {
-    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
     maxAge: 7 * 24 * 60 * 60 * 1000,
     httpOnly: true,
   },
@@ -81,6 +81,9 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
+
+  console.log("SUCCESS:", res.locals.success);
+  console.log("FAILURE:", res.locals.error);
   next();
 });
 
