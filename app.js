@@ -21,7 +21,7 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl = process.env.ATLASDB_URL;
 
 main()
@@ -33,7 +33,7 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(dbUrl);
+  await mongoose.connect(MONGO_URL);
 }
 
 app.set("view engine", "ejs");
@@ -44,16 +44,27 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
-  mongoUrl: dbUrl,
-  crypto: {
-    secret: "mysupersecretcode",
-  },
+  mongoUrl: process.env.ATLASDB_URL, // match the variable actually in your .env
+  crypto: { secret: "mysupersecretcode" },
   touchAfter: 24 * 3600,
 });
 
-store.on("error", () => {
-  console.log("ERRRO in MOMGO SESSION STORE", err);
+store.on("error", (err) => {
+  console.log("ERROR in MONGO SESSION STORE", err);
 });
+
+
+// const store = MongoStore.create({
+//   mongoUrl: MONGO_URL,
+//   crypto: {
+//     secret: "mysupersecretcode",
+//   },
+//   touchAfter: 24 * 3600,
+// });
+
+// store.on("error", () => {
+//   console.log("ERRRO in MOMGO SESSION STORE", err);
+// });
 
 const sessionOptions = {
   store,
@@ -81,11 +92,26 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
-
-  console.log("SUCCESS:", res.locals.success);
-  console.log("FAILURE:", res.locals.error);
+  console.log(
+    "PATH:",
+    req.originalUrl,
+    "| currUser set to:",
+    res.locals.currUser,
+  );
   next();
 });
+
+// app.use((req, res, next) => {
+//   res.locals.success = req.flash("success");
+//   res.locals.error = req.flash("error");
+//   res.locals.currUser = req.user;
+
+//   console.log("req user:" , req.user);
+
+//   console.log("SUCCESS:", res.locals.success);
+//   console.log("FAILURE:", res.locals.error);
+//   next();
+// });
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
