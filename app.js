@@ -44,7 +44,7 @@ app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const store = MongoStore.create({
-  mongoUrl: process.env.ATLASDB_URL, // match the variable actually in your .env
+  mongoUrl: process.env.ATLASDB_URL,
   crypto: { secret: "mysupersecretcode" },
   touchAfter: 24 * 3600,
 });
@@ -52,7 +52,6 @@ const store = MongoStore.create({
 store.on("error", (err) => {
   console.log("ERROR in MONGO SESSION STORE", err);
 });
-
 
 // const store = MongoStore.create({
 //   mongoUrl: MONGO_URL,
@@ -92,26 +91,10 @@ app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
-  console.log(
-    "PATH:",
-    req.originalUrl,
-    "| currUser set to:",
-    res.locals.currUser,
-  );
+ 
   next();
 });
 
-// app.use((req, res, next) => {
-//   res.locals.success = req.flash("success");
-//   res.locals.error = req.flash("error");
-//   res.locals.currUser = req.user;
-
-//   console.log("req user:" , req.user);
-
-//   console.log("SUCCESS:", res.locals.success);
-//   console.log("FAILURE:", res.locals.error);
-//   next();
-// });
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
